@@ -7,6 +7,9 @@ const userSchema = new Schema<IUser>({
   password: { type: String, required: true },
   role: { type: String, enum: ["Student", "Teacher"], required: true },
   followingTeachers: [{ type: Schema.Types.ObjectId, ref: "User" }],
+},{
+  versionKey:false,
+  timestamps:true
 });
 
 export const User = model<IUser>("User", userSchema);

@@ -1,5 +1,3 @@
-
-
 import { Enrollment } from "../Students/studentModel";
 
 // Follow a course

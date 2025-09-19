@@ -38,7 +38,7 @@
 - **Teacher Interaction:** Follow favorite teachers  
 
 ---
-🌐 Live Backend Demo: [Click here to access the live backend](https://learnsphere-backend.onrender.com)
+🌐 Live Backend Demo: [Click here to access the live backend](https://learn-sphere-beige.vercel.app)
 
 ## 💻 Installation
 
@@ -66,71 +66,88 @@ npm run dev
 ## Authentication
 | Method | Endpoint    | Description                 |
 | ------ | ----------- | --------------------------- |
-| POST   | /auth/login | Login with email & password |
+| POST   | `/auth/login` | Login with email & password |
 
 ## Users
 | Method | Endpoint       | Description             |
 | ------ | -------------- | ----------------------- |
-| POST   | /user/register | Register a new user     |
-| GET    | /user/me       | Get logged-in user info |
+| POST   | `/user/register` | Register a new user     |
+| GET    | `/user/me`       | Get logged-in user info |
 
 ## Courses
 | Method | Endpoint       | Description                    |
 | ------ | -------------- | ------------------------------ |
-| POST   | /course        | Create a course (Teacher only) |
-| GET    | /course/getAll | Get all courses (Teacher only) |
-| GET    | /course/\:id   | Get a single course            |
-| PATCH  | /course/\:id   | Update a course                |
-| DELETE | /course/\:id   | Delete a course                |
+| POST   | `/course`        | Create a course (Teacher only) |
+| GET    | `/course/getAll` | Get all courses (Teacher only) |
+| GET    | `/course/:id`   | Get a single course            |
+| PATCH  | `/course/:id`   | Update a course                |
+| DELETE | `/course/:id`   | Delete a course                |
 
 ## Lessons
 | Method | Endpoint      | Description                    |
 | ------ | ------------- | ------------------------------ |
-| POST   | /lession      | Create a lesson (Teacher only) |
-| GET    | /lession      | Get all lessons                |
-| GET    | /lession/\:id | Get a single lesson            |
-| PATCH  | /lession/\:id | Update a lesson                |
-| DELETE | /lession/\:id | Delete a lesson                |
+| POST   | `/lession`      | Create a lesson (Teacher only) |
+| GET    | `/lession`      | Get all lessons                |
+| GET    | `/lession/:id` | Get a single lesson            |
+| PATCH  | `/lession/:id` | Update a lesson                |
+| DELETE | `/lession/:id` | Delete a lesson                |
 
 ## Lessons
-| Method | Endpoint      | Description                    |
-| ------ | ------------- | ------------------------------ |
-| POST   | /lession      | Create a lesson (Teacher only) |
-| GET    | /lession      | Get all lessons                |
-| GET    | /lession/\:id | Get a single lesson            |
-| PATCH  | /lession/\:id | Update a lesson                |
-| DELETE | /lession/\:id | Delete a lesson                |
+| Method | Endpoint       | Description                    |
+| ------ | -------------  | ------------------------------ |
+| POST   | `/lession`     | Create a lesson (Teacher only) |
+| GET    | `/lession`     | Get all lessons                |
+| GET    | `/lession/:id` | Get a single lesson            |
+| PATCH  | `/lession/:id` | Update a lesson                |
+| DELETE | `/lession/:id` | Delete a lesson                |
 
 ## Topics
-| Method | Endpoint    | Description                   |
-| ------ | ----------- | ----------------------------- |
-| POST   | /topic      | Create a topic (Teacher only) |
-| GET    | /topic      | Get all topics by lesson      |
-| GET    | /topic/\:id | Get single topic              |
-| PATCH  | /topic/\:id | Update a topic                |
-| DELETE | /topic/\:id | Delete a topic                |
+| Method | Endpoint     | Description                    |
+| ------ | -----------  | -----------------------------  |
+| POST   | `/topic`     | Create a topic (Teacher only)  |
+| GET    | `/topic`     | Get all topics by lesson       |
+| GET    | `/topic/:id` | Get single topic              |
+| PATCH  | `/topic/:id` | Update a topic                |
+| DELETE | `/topic/:id` | Delete a topic                |
+
+##Student
+| Method | Endpoint                       | Description                                                     | Access  |
+| ------ | ------------------------------ | --------------------------------------------------------        | ------- |
+| GET    | `student/allCourse`                   | Browse all available courses                             | Student |
+| POST   | `student/enroll`                      | Enroll in a course                                       | Student |
+| GET    | `student/lessons/:courseId`           | Get all lessons of a course                              | Student |
+| POST   | `student/courses/view/:courseId`      | Track that the student viewed the course                 | Student |
+| POST   | `student/courses/like/:courseId`      | Like a course                                            | Student |
+| POST   | `student/courses/feedback/:courseId`  | Add feedback for a course                                | Student |
+| GET    | `student/courses/analytics/:courseId` | Get analytics of a course (views, likes, progress, etc.) | Student |
 
 ## Enrollment
-| Method | Endpoint                               | Description                                 |
-| ------ | -------------------------------------- | ------------------------------------------- |
-| POST   | /enrollment/follow                     | Follow a course (Student only)              |
-| POST   | /enrollment/unfollow                   | Unfollow a course (Student only)            |
-| PATCH  | /enrollment/progress                   | Update course progress (Student only)       |
-| GET    | /enrollment/course/students/\:courseId | Get all students of a course (Teacher only) |
+| Method | Endpoint                               | Description                                   |
+| ------ | -------------------------------------- | -------------------------------------------   |
+| POST   | `/enrollment/follow`                     | Follow a course (Student only)              |
+| POST   | `/enrollment/unfollow`                   | Unfollow a course (Student only)            |
+| PATCH  | `/enrollment/progress`                   | Update course progress (Student only)       |
+| GET    | `/enrollment/course/students/:courseId` | Get all students of a course (Teacher only)  |
 
 ## Feedback
 | Method | Endpoint             | Description                                   |
 | ------ | -------------------- | --------------------------------------------- |
-| POST   | /feedback/\:courseId | Add feedback (Student only)                   |
-| GET    | /feedback/\:courseId | Get all feedbacks for a course (Teacher only) |
+| POST   | `/feedback/:courseId` | Add feedback (Student only)                   |
+| GET    | `/feedback/:courseId | Get all feedbacks for a course (Teacher only) |
+
+##Quiz
+| Method | Endpoint          | Description                | Access  |
+| ------ | ----------------- | -------------------------- | ------- |
+| POST   | `/:courseId`      | Create a quiz for a course | Teacher |
+| POST   | `/submit/:quizId` | Submit a quiz by a student | Student |
 
 ## Teacher Follow
 | Method | Endpoint                                  | Description                                          |
 | ------ | ----------------------------------------- | ---------------------------------------------------- |
-| POST   | /connection/\:teacherId                   | Follow a teacher (Student only)                      |
-| POST   | /connection/unfollow/\:teacherId          | Unfollow a teacher (Student only)                    |
-| GET    | /connection/teacher/followers/\:teacherId | Get followers of teacher (Teacher only)              |
-| GET    | /connection/student/following             | Get teachers the student is following (Student only) |
+| POST   | `/connection/:teacherId`                   | Follow a teacher (Student only)                      |
+| POST   | `/connection/unfollow/:teacherId`          | Unfollow a teacher (Student only)                    |
+| GET    | `/connection/teacher/followers/:teacherId` | Get followers of teacher (Teacher only)              |
+| GET    | `/connection/student/following`             | Get teachers the student is following (Student only) |
 
 
 

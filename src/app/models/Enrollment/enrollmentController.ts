@@ -25,6 +25,15 @@ const unfollowCourseController = async (req: Request, res: Response) => {
 
   const result = await EnrollmentService.unfollowCourse(studentId as string, courseId as string);
 
+  if (!result) {
+    return res.status(httpStatus.NOT_FOUND).json({
+      success: false,
+      statusCode: httpStatus.NOT_FOUND,
+      message: "Enrollment not found or already unfollowed",
+      data: null,
+    });
+  }
+
   res.status(httpStatus.OK).json({
     success: true,
     statusCode: httpStatus.OK,
@@ -32,6 +41,7 @@ const unfollowCourseController = async (req: Request, res: Response) => {
     data: result,
   });
 };
+
 
 // Update progress
 const updateProgressController = async (req: Request, res: Response) => {

@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EnrollmentRoute = void 0;
+const express_1 = require("express");
+const enrollmentController_1 = require("./enrollmentController");
+const checkAuth_1 = require("../../middleware/checkAuth");
+const userInterface_1 = require("../user/userInterface");
+const router = (0, express_1.Router)();
+router.post("/follow", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.STUDENT), enrollmentController_1.EnrolledController.followCourseController);
+router.post("/unfollow", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.STUDENT), enrollmentController_1.EnrolledController.unfollowCourseController);
+router.patch("/progress", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.STUDENT), enrollmentController_1.EnrolledController.updateProgressController);
+router.get("/course/students/:courseId", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.TEACHER), enrollmentController_1.EnrolledController.getCourseStudentsController);
+exports.EnrollmentRoute = router;

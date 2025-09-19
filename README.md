@@ -38,15 +38,13 @@
 - **Teacher Interaction:** Follow favorite teachers  
 
 ---
+🌐 Live Backend Demo: [Click here to access the live backend](https://learnsphere-backend.onrender.com)
 
 ## 💻 Installation
 
 ```bash
 # Clone repository
 git clone https://github.com/IsmailHossen87/LernShere 
-
-🌐 Live Backend Demo: [Click here to access the live backend](https://learnsphere-backend.onrender.com)
-
 
 # Navigate to project folder
 cd LernShere
@@ -58,53 +56,86 @@ npm install
 npm run dev
 
 
-##API Routes
-# Base URL:/api/v1
+## 💻 Installation
 
-| Route                                     | Method | Access          | Description                       |
-| ----------------------------------------- | ------ | --------------- | --------------------------------- |
-| /auth/login                               | POST   | Public          | Login with email & password       |
-| /user/register                            | POST   | Public          | Register a new user               |
-| /user/me                                  | GET    | Student/Teacher | Get current logged-in user info   |
-| /course                                   | POST   | Teacher         | Create a course                   |
-| /course/getAll                            | GET    | Teacher         | Get all courses                   |
-| /course/\:id                              | GET    | Teacher         | Get single course                 |
-| /course/\:id                              | PATCH  | Teacher         | Update a course                   |
-| /course/\:id                              | DELETE | Teacher         | Delete a course                   |
-| /lession                                  | POST   | Teacher         | Create a lesson                   |
-| /lession                                  | GET    | Teacher         | Get all lessons                   |
-| /lession/\:id                             | GET    | Teacher         | Get single lesson                 |
-| /lession/\:id                             | PATCH  | Teacher         | Update lesson                     |
-| /lession/\:id                             | DELETE | Teacher         | Delete lesson                     |
-| /topic                                    | POST   | Teacher         | Create a topic                    |
-| /topic                                    | GET    | Teacher         | Get topics by lesson              |
-| /topic/\:id                               | GET    | Teacher         | Get single topic                  |
-| /topic/\:id                               | PATCH  | Teacher         | Update topic                      |
-| /topic/\:id                               | DELETE | Teacher         | Delete topic                      |
-| /enrollment/follow                        | POST   | Student         | Follow a course                   |
-| /enrollment/unfollow                      | POST   | Student         | Unfollow a course                 |
-| /enrollment/progress                      | PATCH  | Student         | Update course progress            |
-| /enrollment/course/students/\:courseId    | GET    | Teacher         | Get all students of a course      |
-| /feedback/\:courseId                      | POST   | Student         | Add feedback                      |
-| /feedback/\:courseId                      | GET    | Teacher         | Get course feedback               |
-| /connection/\:teacherId                   | POST   | Student         | Follow a teacher                  |
-| /connection/unfollow/\:teacherId          | POST   | Student         | Unfollow a teacher                |
-| /connection/teacher/followers/\:teacherId | GET    | Teacher         | Get followers of a teacher        |
-| /connection/student/following             | GET    | Student         | Get teachers student is following |
-| /quiz/\:courseId                          | POST   | Teacher         | Create a quiz                     |
-| /quiz/submit/\:quizId                     | POST   | Student         | Submit a quiz                     |
-| /student/courses/view/\:courseId          | POST   | Student         | Track course view                 |
-| /student/courses/like/\:courseId          | POST   | Student         | Track course like                 |
-| /student/allCourse                        | GET    | Student         | Browse all courses                |
-| /student/enroll                           | POST   | Student         | Enroll in a course                |
-| /student/lessons/\:courseId               | GET    | Student         | Get course lessons                |
-| /student/courses/feedback/\:courseId      | POST   | Student         | Add course feedback               |
-| /student/courses/analytics/\:courseId     | GET    | Student         | View course analytics             |
+```
+# ✨ API Routes
+**Base URL: /api/v1
+
+## Authentication
+| Method | Endpoint    | Description                 |
+| ------ | ----------- | --------------------------- |
+| POST   | /auth/login | Login with email & password |
+
+## Users
+| Method | Endpoint       | Description             |
+| ------ | -------------- | ----------------------- |
+| POST   | /user/register | Register a new user     |
+| GET    | /user/me       | Get logged-in user info |
+
+## Courses
+| Method | Endpoint       | Description                    |
+| ------ | -------------- | ------------------------------ |
+| POST   | /course        | Create a course (Teacher only) |
+| GET    | /course/getAll | Get all courses (Teacher only) |
+| GET    | /course/\:id   | Get a single course            |
+| PATCH  | /course/\:id   | Update a course                |
+| DELETE | /course/\:id   | Delete a course                |
+
+## Lessons
+| Method | Endpoint      | Description                    |
+| ------ | ------------- | ------------------------------ |
+| POST   | /lession      | Create a lesson (Teacher only) |
+| GET    | /lession      | Get all lessons                |
+| GET    | /lession/\:id | Get a single lesson            |
+| PATCH  | /lession/\:id | Update a lesson                |
+| DELETE | /lession/\:id | Delete a lesson                |
+
+## Lessons
+| Method | Endpoint      | Description                    |
+| ------ | ------------- | ------------------------------ |
+| POST   | /lession      | Create a lesson (Teacher only) |
+| GET    | /lession      | Get all lessons                |
+| GET    | /lession/\:id | Get a single lesson            |
+| PATCH  | /lession/\:id | Update a lesson                |
+| DELETE | /lession/\:id | Delete a lesson                |
+
+## Topics
+| Method | Endpoint    | Description                   |
+| ------ | ----------- | ----------------------------- |
+| POST   | /topic      | Create a topic (Teacher only) |
+| GET    | /topic      | Get all topics by lesson      |
+| GET    | /topic/\:id | Get single topic              |
+| PATCH  | /topic/\:id | Update a topic                |
+| DELETE | /topic/\:id | Delete a topic                |
+
+## Enrollment
+| Method | Endpoint                               | Description                                 |
+| ------ | -------------------------------------- | ------------------------------------------- |
+| POST   | /enrollment/follow                     | Follow a course (Student only)              |
+| POST   | /enrollment/unfollow                   | Unfollow a course (Student only)            |
+| PATCH  | /enrollment/progress                   | Update course progress (Student only)       |
+| GET    | /enrollment/course/students/\:courseId | Get all students of a course (Teacher only) |
+
+## Feedback
+| Method | Endpoint             | Description                                   |
+| ------ | -------------------- | --------------------------------------------- |
+| POST   | /feedback/\:courseId | Add feedback (Student only)                   |
+| GET    | /feedback/\:courseId | Get all feedbacks for a course (Teacher only) |
+
+## Teacher Follow
+| Method | Endpoint                                  | Description                                          |
+| ------ | ----------------------------------------- | ---------------------------------------------------- |
+| POST   | /connection/\:teacherId                   | Follow a teacher (Student only)                      |
+| POST   | /connection/unfollow/\:teacherId          | Unfollow a teacher (Student only)                    |
+| GET    | /connection/teacher/followers/\:teacherId | Get followers of teacher (Teacher only)              |
+| GET    | /connection/student/following             | Get teachers the student is following (Student only) |
+
 
 
 ## 🧪 Demo Credentials
-
 | Role    | Email                     | Password     |
 | ------- | ------------------------- | ----------- |
 | Teacher | nadirexample@gmail.com    | asdfASDF11  |
 
+```

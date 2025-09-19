@@ -12,7 +12,7 @@ const startServer = async()=>{
             console.log(`Server is connected${envVar.PORT}`)
         })
     } catch (error) {
-        
+        console.log(error)
     }
 }
 

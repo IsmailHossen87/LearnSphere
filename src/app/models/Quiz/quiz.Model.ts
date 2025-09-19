@@ -1,5 +1,5 @@
 // quiz.model.ts
-import { Schema, model, Types } from "mongoose";
+import { Schema, model } from "mongoose";
 import { IQuiz, IQuizSubmission } from "./quiz.Interface";
 
 const quizSchema = new Schema<IQuiz>({

@@ -57,8 +57,9 @@ npm run dev
 
 
 ## 💻 Installation
-
 ```
+
+```bash
 # ✨ API Routes
 **Base URL: /api/v1
 

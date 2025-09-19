@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import AppError from "../../errorHelper/AppError";
 import { ICourse } from "./TeacherInterface";
 import httpStatus from "http-status-codes";

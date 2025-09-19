@@ -12,13 +12,13 @@ const trackCourseView = async (req: Request, res: Response) => {
     res.status(httpStatus.CREATED).json({
         success: true,
         statusCode: httpStatus.CREATED,
-        data: null,
+        data: updatedCourse,
     });
 };
 // Like
 const trackCourseLike = async (req: Request, res: Response) => {
     const { courseId } = req.params;
-    const updatedCourse = await studentServices.likeCourse(courseId);
+ await studentServices.likeCourse(courseId);
 
     res.status(httpStatus.CREATED).json({
         success: true,
@@ -75,7 +75,7 @@ const enrollCourseController = async (req: Request, res: Response) => {
     const { courseId } = req.body;
     const studentId = (req.user as JwtPayload)?.userId;
 
-    const enrollment = await studentServices.enrollCourse(studentId!, courseId);
+    const enrollment = await studentServices.enrollCourse(studentId as string, courseId);
 
     res.status(httpStatus.OK).json({
         success: true,
@@ -91,7 +91,7 @@ const getCourseLessonsController = async (req: Request, res: Response) => {
     const { courseId } = req.params;
     const studentId = (req.user as JwtPayload)?.userId;
 
-    const course = await studentServices.getCourseLessons(studentId!, courseId);
+    const course = await studentServices.getCourseLessons(studentId as string, courseId as string);
 
     res.status(httpStatus.OK).json({
         success: true,

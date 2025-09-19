@@ -1,6 +1,5 @@
 import { model, Schema } from "mongoose";
 import { ITopic } from "./topicInterface";
-import { LessonModel } from "../lession/lessionModel";
 
 const topicSchema = new Schema<ITopic>(
   {

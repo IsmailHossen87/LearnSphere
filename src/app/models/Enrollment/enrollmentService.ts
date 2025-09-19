@@ -1,5 +1,5 @@
 
-import { Types } from "mongoose";
+
 import { Enrollment } from "../Students/studentModel";
 
 // Follow a course

@@ -7,8 +7,8 @@ import { IRole } from "../user/userInterface";
 const router = express.Router();
 
 router.post("/",checkAuth(IRole.TEACHER), LessonController.createLesson);
-router.get("/",checkAuth(IRole.TEACHER), LessonController.getLessons);
-router.get("/:id",checkAuth(IRole.TEACHER), LessonController.getSingleLesson);
+router.get("/", LessonController.getLessons);
+router.get("/:id", LessonController.getSingleLesson);
 router.patch("/:id",checkAuth(IRole.TEACHER), LessonController.updateLesson);
 router.delete("/:id",checkAuth(IRole.TEACHER), LessonController.deleteLesson);
 

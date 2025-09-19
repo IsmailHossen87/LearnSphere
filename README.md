@@ -75,22 +75,13 @@ npm run dev
 | GET    | `/user/me`       | Get logged-in user info |
 
 ## Courses
-| Method | Endpoint       | Description                    |
-| ------ | -------------- | ------------------------------ |
-| POST   | `/course`        | Create a course (Teacher only) |
-| GET    | `/course/getAll` | Get all courses (Teacher only) |
+| Method | Endpoint       | Description                     |
+| ------ | -------------- | ------------------------------  |
+| POST   | `/course`        | Create a course (Teacher only)|
+| GET    | `/course/getAll` | Get all courses               |
 | GET    | `/course/:id`   | Get a single course            |
-| PATCH  | `/course/:id`   | Update a course                |
-| DELETE | `/course/:id`   | Delete a course                |
-
-## Lessons
-| Method | Endpoint      | Description                    |
-| ------ | ------------- | ------------------------------ |
-| POST   | `/lession`      | Create a lesson (Teacher only) |
-| GET    | `/lession`      | Get all lessons                |
-| GET    | `/lession/:id` | Get a single lesson            |
-| PATCH  | `/lession/:id` | Update a lesson                |
-| DELETE | `/lession/:id` | Delete a lesson                |
+| PATCH  | `/course/:id`   | Update a course (Teacher only) |
+| DELETE | `/course/:id`   | Delete a course (Teacher only) |
 
 ## Lessons
 | Method | Endpoint       | Description                    |
@@ -98,17 +89,17 @@ npm run dev
 | POST   | `/lession`     | Create a lesson (Teacher only) |
 | GET    | `/lession`     | Get all lessons                |
 | GET    | `/lession/:id` | Get a single lesson            |
-| PATCH  | `/lession/:id` | Update a lesson                |
-| DELETE | `/lession/:id` | Delete a lesson                |
+| PATCH  | `/lession/:id` | Update a lesson (Teacher only)  |
+| DELETE | `/lession/:id` | Delete a lesson (Teacher only)  |
 
 ## Topics
 | Method | Endpoint     | Description                    |
 | ------ | -----------  | -----------------------------  |
 | POST   | `/topic`     | Create a topic (Teacher only)  |
 | GET    | `/topic`     | Get all topics by lesson       |
-| GET    | `/topic/:id` | Get single topic              |
-| PATCH  | `/topic/:id` | Update a topic                |
-| DELETE | `/topic/:id` | Delete a topic                |
+| GET    | `/topic/:id` | Get single topic               |
+| PATCH  | `/topic/:id` | Update a topic (Teacher only)  |
+| DELETE | `/topic/:id` | Delete a topic (Teacher only)  |
 
 ##Student
 | Method | Endpoint                       | Description                                                     | Access  |
@@ -138,8 +129,8 @@ npm run dev
 ##Quiz
 | Method | Endpoint          | Description                | Access  |
 | ------ | ----------------- | -------------------------- | ------- |
-| POST   | `/:courseId`      | Create a quiz for a course | Teacher |
-| POST   | `/submit/:quizId` | Submit a quiz by a student | Student |
+| POST   | `quiz/:courseId`      | Create a quiz for a course | Teacher |
+| POST   | `quiz/submit/:quizId` | Submit a quiz by a student | Student |
 
 ## Teacher Follow
 | Method | Endpoint                                  | Description                                          |

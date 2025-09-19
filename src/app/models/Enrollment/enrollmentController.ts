@@ -8,7 +8,7 @@ const followCourseController = async (req: Request, res: Response) => {
   const { courseId } = req.body;
   const studentId = (req.user as JwtPayload)?.userId;
 
-  const result = await EnrollmentService.followCourse(studentId!, courseId);
+  const result = await EnrollmentService.followCourse(studentId as string, courseId as string);
 
   res.status(httpStatus.OK).json({
     success: true,
@@ -23,7 +23,7 @@ const unfollowCourseController = async (req: Request, res: Response) => {
   const { courseId } = req.body;
   const studentId = (req.user as JwtPayload)?.userId;
 
-  const result = await EnrollmentService.unfollowCourse(studentId!, courseId);
+  const result = await EnrollmentService.unfollowCourse(studentId as string, courseId as string);
 
   res.status(httpStatus.OK).json({
     success: true,

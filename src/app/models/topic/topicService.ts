@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ITopic } from "./topicInterface";
 import { TopicModel } from "./topicModel";
 import AppError from "../../errorHelper/AppError";

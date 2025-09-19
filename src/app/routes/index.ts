@@ -6,6 +6,8 @@ import { LessonRoutes } from "../models/lession/lessionRoute"
 import { TopicRoutes } from "../models/topic/topicRoute"
 import { StudentsRoute } from "../models/Students/studentRoute"
 import { EnrollmentRoute } from "../models/Enrollment/enrollmentRoute"
+import { FeedbackRouter } from "../models/feedback/feedbackRoute"
+import { QuizRouter } from "../models/Quiz/quizRoute"
 
 export const router = Router()
 
@@ -17,6 +19,8 @@ const moduleRoutes = [
     { path: "/topic", route: TopicRoutes },
     { path: "/student", route: StudentsRoute },
     { path: "/enrollment", route: EnrollmentRoute },
+    { path: "/feedback", route: FeedbackRouter },
+    { path: "/quiz", route: QuizRouter },
 ]
 
 moduleRoutes.forEach((route) => {

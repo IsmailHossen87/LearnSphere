@@ -4,6 +4,7 @@ import { authRoute } from "../models/auth/authRoute"
 import { CourseRoute } from "../models/Teacher/TeacherRoute"
 import { LessonRoutes } from "../models/lession/lessionRoute"
 import { TopicRoutes } from "../models/topic/topicRoute"
+import { StudentsRoute } from "../models/Students/studentRoute"
 
 export const router = Router()
 
@@ -13,6 +14,7 @@ const moduleRoutes = [
     { path: "/course", route: CourseRoute },
     { path: "/lession", route: LessonRoutes },
     { path: "/topic", route: TopicRoutes },
+    { path: "/student", route: StudentsRoute },
 ]
 
 moduleRoutes.forEach((route) => {

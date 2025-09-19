@@ -21,6 +21,20 @@ const courseSchema = new Schema<ICourse>(
   { timestamps: true, versionKey: false }
 );
 
+
+// Update Course to get 
+const teacherFollowSchema = new Schema({
+  teacherId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  studentId: { type: Schema.Types.ObjectId, ref: "User", required: true },
+},{
+  versionKey:false,timestamps:true
+});
+
+teacherFollowSchema.index({ teacherId: 1, studentId: 1 }, { unique: true });
+export const TeacherFollow = model("TeacherFollow", teacherFollowSchema);
+
+
+
 export const CourseModel = model<ICourse>("Course", courseSchema);
 
 

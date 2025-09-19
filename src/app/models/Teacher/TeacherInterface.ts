@@ -10,7 +10,7 @@ export interface ICourse extends Document {
   title: string;
   description: string;
   teacher: Types.ObjectId;        
-  lessons: Types.ObjectId[];      
+  lessons?: Types.ObjectId[];      
   views?: number;                   
   likes?: number;                 
   likedBy?: Types.ObjectId[];      

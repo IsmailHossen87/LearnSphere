@@ -16,7 +16,7 @@ const courseInfoService = async (payload: Partial<ICourse>, jwtInfo: JwtPayload)
         title: payload.title,
         description: payload.description,
         teacher: jwtInfo.userId,
-        lessons: [],
+        lessons: Array.isArray(payload.lessons) ? payload.lessons : [payload.lessons]
     });
 
     return newCourse;

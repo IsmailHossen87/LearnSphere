@@ -44,7 +44,6 @@ const addCourseFeedback = async (req: Request, res: Response) => {
     });
 };
 // Analytics
-// Like
 const courseAnalytics = async (req: Request, res: Response) => {
     const { courseId } = req.params;
     const analytics = await studentServices.likeCourse(courseId);
@@ -55,5 +54,53 @@ const courseAnalytics = async (req: Request, res: Response) => {
         data: analytics,
     });
 };
+// Browse Course
+const browseCoursesController = async (req: Request, res: Response) => {
+    const { searchTerm, page, limit } = req.query;
+    const courses = await studentServices.getAllCourses(
+        searchTerm as string,
+        Number(page) || 1,
+        Number(limit) || 10
+    );
 
-export const studentsController = { trackCourseView, trackCourseLike, addCourseFeedback, courseAnalytics }
+    res.status(httpStatus.OK).json({
+        success: true,
+        statusCode: httpStatus.OK,
+        message: "Courses retrieved successfully",
+        data: courses,
+    });
+};
+// Enroll in course
+const enrollCourseController = async (req: Request, res: Response) => {
+    const { courseId } = req.body;
+    const studentId = (req.user as JwtPayload)?.userId;
+
+    const enrollment = await studentServices.enrollCourse(studentId!, courseId);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        statusCode: httpStatus.OK,
+        message: "Enrolled in course successfully",
+        data: enrollment,
+    });
+
+}
+
+// Get lessons & topics
+const getCourseLessonsController = async (req: Request, res: Response) => {
+    const { courseId } = req.params;
+    const studentId = (req.user as JwtPayload)?.userId;
+
+    const course = await studentServices.getCourseLessons(studentId!, courseId);
+
+    res.status(httpStatus.OK).json({
+        success: true,
+        statusCode: httpStatus.OK,
+        message: "Course lessons retrieved successfully",
+        data: course,
+    });
+
+}
+
+
+export const studentsController = { trackCourseView, trackCourseLike, addCourseFeedback, courseAnalytics, browseCoursesController, enrollCourseController, getCourseLessonsController }

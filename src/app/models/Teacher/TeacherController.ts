@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { NextFunction, Request, Response } from "express";
+import {  Request, Response } from "express";
 import { catchAsync } from "../../utils/catchAsync";
 import { sendResponse } from "../../utils/sendResponse";
 import httpStatus from "http-status-codes";
@@ -17,6 +17,31 @@ const createCourse  = catchAsync(async (req: Request, res: Response) => {
     statusCode: httpStatus.CREATED,
     message: "Course Created successfully",
     data: personalInfo,
+  });
+});
+
+// Get All Courses
+const getAllCourses = catchAsync(async (req: Request, res: Response) => {
+  const query = req.query;
+  const courses = await courseService.getAllCoursesService(query);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Courses retrieved successfully",
+    data: courses,
+  });
+});
+// Get Single Course by ID
+const getSingleCourse = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const course = await courseService.getSingleCourseService(id);
+
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: "Course retrieved successfully",
+    data: course,
   });
 });
 
@@ -52,5 +77,5 @@ const deleteCourse = catchAsync(async (req: Request, res: Response) => {
 
 
 export const CourseControllers = {
-  createCourse,updateCourse,deleteCourse
+  createCourse,getAllCourses,getSingleCourse,updateCourse,deleteCourse
 };

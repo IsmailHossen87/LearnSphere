@@ -1,4 +1,4 @@
-// teacherFollow.routes.ts
+
 import { Router } from "express";
 import { checkAuth } from "../../middleware/checkAuth";
 import { IRole } from "../user/userInterface";

@@ -1,4 +1,4 @@
-// teacherFollow.controller.ts
+
 import { Request, Response } from "express";
 
 import { JwtPayload } from "jsonwebtoken";

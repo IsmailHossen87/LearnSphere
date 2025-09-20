@@ -1,4 +1,4 @@
-// src/models/course.model.ts
+
 import { Schema, model } from "mongoose";
 import { ICourse } from "./TeacherInterface";
 

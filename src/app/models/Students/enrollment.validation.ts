@@ -1,4 +1,4 @@
-// src/validation/enrollment.validation.ts
+
 import { z } from "zod";
 
 // Create Enrollment Validation

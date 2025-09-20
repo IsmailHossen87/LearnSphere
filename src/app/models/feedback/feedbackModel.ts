@@ -1,4 +1,4 @@
-// feedback.model.ts
+
 import { Schema, model } from "mongoose";
 import { IFeedback } from "./feedbackInterface";
 

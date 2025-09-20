@@ -6,9 +6,11 @@ const express_1 = require("express");
 const checkAuth_1 = require("../../middleware/checkAuth");
 const userInterface_1 = require("../user/userInterface");
 const quizController_1 = require("./quizController");
+const validateRequest_1 = require("../../middleware/validateRequest");
+const Quiz_validation_1 = require("./Quiz.validation");
 const router = (0, express_1.Router)();
 // Teacher creates quiz
-router.post("/:courseId", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.TEACHER), quizController_1.QuizController.createQuizController);
+router.post("/:courseId", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.TEACHER), (0, validateRequest_1.validateRequest)(Quiz_validation_1.createQuizZodSchema), quizController_1.QuizController.createQuizController);
 // Student submits quiz
-router.post("/submit/:quizId", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.STUDENT), quizController_1.QuizController.submitQuizController);
+router.post("/submit/:quizId", (0, checkAuth_1.checkAuth)(userInterface_1.IRole.STUDENT), (0, validateRequest_1.validateRequest)(Quiz_validation_1.createQuizSubmissionZodSchema), quizController_1.QuizController.submitQuizController);
 exports.QuizRouter = router;

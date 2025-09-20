@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.teacherFollowRoute = void 0;
-// teacherFollow.routes.ts
 const express_1 = require("express");
 const checkAuth_1 = require("../../middleware/checkAuth");
 const userInterface_1 = require("../user/userInterface");

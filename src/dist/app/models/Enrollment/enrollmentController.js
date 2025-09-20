@@ -34,6 +34,14 @@ const unfollowCourseController = (req, res) => __awaiter(void 0, void 0, void 0,
     const { courseId } = req.body;
     const studentId = (_a = req.user) === null || _a === void 0 ? void 0 : _a.userId;
     const result = yield enrollmentService_1.EnrollmentService.unfollowCourse(studentId, courseId);
+    if (!result) {
+        return res.status(http_status_codes_1.default.NOT_FOUND).json({
+            success: false,
+            statusCode: http_status_codes_1.default.NOT_FOUND,
+            message: "Enrollment not found or already unfollowed",
+            data: null,
+        });
+    }
     res.status(http_status_codes_1.default.OK).json({
         success: true,
         statusCode: http_status_codes_1.default.OK,

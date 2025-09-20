@@ -1,4 +1,4 @@
-// feedback.interface.ts
+
 import { Types } from "mongoose";
 
 export interface IFeedback {

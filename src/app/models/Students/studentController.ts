@@ -31,7 +31,7 @@ const addCourseFeedback = async (req: Request, res: Response) => {
     const { courseId } = req.params;
     const { feedback } = req.body;
 
-    // JWT থেকে student ID ধরে নিচ্ছি req.user এ আছে
+ 
     const studentId = req.user as JwtPayload;
 
     const updatedCourse = await studentServices.addCourseFeedback(courseId, feedback, studentId.userId);

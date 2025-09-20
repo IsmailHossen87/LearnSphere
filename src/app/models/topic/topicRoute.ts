@@ -3,7 +3,7 @@ import { TopicController } from "./topicController";
 import { checkAuth } from "../../middleware/checkAuth";
 import { IRole } from "../user/userInterface";
 import { validateRequest } from "../../middleware/validateRequest";
-import { createTopicZodSchema, updateTopicZodSchema } from "./topic.validation";
+import { createTopicZodSchema, updateTopicZodSchema,  } from "./topic.validation";
 
 
 const router = express.Router();

@@ -1,4 +1,4 @@
-// quiz.controller.ts
+
 import { Request, Response } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import { QuizService } from "./Queze.Service";

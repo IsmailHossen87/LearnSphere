@@ -14,7 +14,7 @@ const createTopic = async (payload: Partial<ITopic>) => {
   return result;
 };
 
-// Get all Topics by Lesson ID
+
 const getTopicsByLesson = async (lessonId?: string) => {
   const filter: any = {};
   if (lessonId) {

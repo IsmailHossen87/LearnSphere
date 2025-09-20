@@ -38,7 +38,6 @@ const trackCourseLike = (req, res) => __awaiter(void 0, void 0, void 0, function
 const addCourseFeedback = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { courseId } = req.params;
     const { feedback } = req.body;
-    // JWT থেকে student ID ধরে নিচ্ছি req.user এ আছে
     const studentId = req.user;
     const updatedCourse = yield studentService_1.studentServices.addCourseFeedback(courseId, feedback, studentId.userId);
     res.status(http_status_codes_1.default.CREATED).json({

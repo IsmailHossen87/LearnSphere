@@ -2,11 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
 const mongoose_1 = require("mongoose");
+const userInterface_1 = require("./userInterface");
 const userSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     email: { type: String, },
     password: { type: String, required: true },
-    role: { type: String, enum: ["Student", "Teacher"], required: true },
+    role: { type: String, enum: ["Student", "Teacher"], default: userInterface_1.IRole.STUDENT },
     followingTeachers: [{ type: mongoose_1.Schema.Types.ObjectId, ref: "User" }],
 }, {
     versionKey: false,

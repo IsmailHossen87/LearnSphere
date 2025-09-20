@@ -24,7 +24,6 @@ const createTopic = (payload) => __awaiter(void 0, void 0, void 0, function* () 
     const result = yield topicModel_1.TopicModel.create(payload);
     return result;
 });
-// Get all Topics by Lesson ID
 const getTopicsByLesson = (lessonId) => __awaiter(void 0, void 0, void 0, function* () {
     const filter = {};
     if (lessonId) {

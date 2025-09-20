@@ -13,6 +13,7 @@ const feedbackRoute_1 = require("../models/feedback/feedbackRoute");
 const quizRoute_1 = require("../models/Quiz/quizRoute");
 const teacherFollow_route_1 = require("../models/Follow/teacherFollow.route");
 exports.router = (0, express_1.Router)();
+//All routes
 const moduleRoutes = [
     { path: "/user", route: userRoute_1.UserRoutes },
     { path: "/auth", route: authRoute_1.authRoute },

@@ -12,6 +12,7 @@ import { teacherFollowRoute } from "../models/Follow/teacherFollow.route"
 
 export const router = Router()
 
+//All routes
 const moduleRoutes = [
     { path: "/user", route: UserRoutes },
     { path: "/auth", route: authRoute },
